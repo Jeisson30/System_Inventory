@@ -1,19 +1,26 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Grid, Card, CardContent, TextField, Button, Alert } from '@mui/material';
+import { Grid, Card, CardContent, TextField, Button  } from '@mui/material';
+import Swal from 'sweetalert2';
 
 const Login = () => {
 
-    const [showLogin, setShowLogin] = useState(false);
+    const [user, setUser] = useState('Jeisson');
 
     const onLogin = () => {
-        setShowLogin(true);
+        setUser(user)
+        Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: `Bienvenido ${user}`,
+            showConfirmButton: false,
+            timer: 1500
+          });
     }
 
     return (
         <div>
             <h1>INICIAR SESION</h1>
-            {showLogin &&  <Alert open={showLogin} onClose={()=> setShowLogin(false)} severity="success">Inicio de sesión con exito</Alert>}
             <Grid container spacing={2} justifyContent="center" alignItems="flex-start" style={{ marginTop: 50 }}>
                 <Card elevation={3} style={{ backgroundColor: '#e6f7ff', width: '80%', maxWidth: 400 }}>
                     <CardContent>
@@ -21,7 +28,7 @@ const Login = () => {
                         <TextField id="outlined-pass" type="password" label="Contraseña" variant="outlined" fullWidth />
                         <Link to="/Register">
                             <Button variant="contained" color="primary" style={{ width: '100%', marginTop: 10 }}>
-                                Registro
+                                Registrarse
                             </Button>
                         </Link>
                         <Link to="/Home">

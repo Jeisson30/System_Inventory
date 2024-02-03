@@ -5,6 +5,7 @@ import theme from './mui/theme';
 import AppRouter from './AppRouter';
 
 function App() {
+
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
