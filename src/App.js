@@ -1,12 +1,16 @@
 import React from 'react';
 import './App.css';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './mui/theme';
 import AppRouter from './AppRouter';
 
 function App() {
   return (
-    <div className="App">
-      <AppRouter />
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <AppRouter />
+      </div>
+    </ThemeProvider> 
   );
 }
 
